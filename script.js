@@ -23,7 +23,6 @@ function doCorrection(equation) {
 }
 function solve() {
     let correctedEquation = doCorrection(display);
-    alert(correctedEquation);
     try {
         display = eval(correctedEquation);
         document.getElementById('display').innerText = display;
