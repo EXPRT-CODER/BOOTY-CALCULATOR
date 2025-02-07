@@ -8,27 +8,27 @@
 <body>
  
   <div class="main-background-div">
-    <div id="display">0</div>
-    <button class="">(</button>
-    <button>)</button>
-    <button>%</button>
-    <button>AC</button>
-    <button>7</button>
-    <button>8</button>
-    <button>9</button>
-    <button>/</button>
-    <button>4</button>
-    <button>5</button>
-    <button>6</button>
-    <button>×</button>
-    <button>1</button>
-    <button>2</button>
-    <button>3</button>
-    <button>-</button>
-    <button>0</button>
-    <button>.</button>
-    <button id="isequal">=</button>
-    <button>+</button>
+    <div id="display">0</div>    
+    <button onclick="buttonPressed('(')">(</button>
+    <button onclick="buttonPressed(')')">)</button>
+    <button onclick="buttonPressed('%')">%</button>
+    <button onclick="buttonAC()">AC</button>
+    <button onclick="buttonPressed('7')">7</button>
+    <button onclick="buttonPressed('8')">8</button>
+    <button onclick="buttonPressed('9')">9</button>
+    <button onclick="buttonPressed('/')">÷</button>
+    <button onclick="buttonPressed('4')">4</button>
+    <button onclick="buttonPressed('5')">5</button>
+    <button onclick="buttonPressed('6')">6</button>
+    <button onclick="buttonPressed('×')">×</button>
+    <button onclick="buttonPressed('1')">1</button>
+    <button onclick="buttonPressed('2')">2</button>
+    <button onclick="buttonPressed('3')">3</button>
+    <button onclick="buttonPressed('-')">-</button>
+    <button onclick="buttonPressed('0')">0</button>
+    <button onclick="buttonPressed('.')">.</button>
+    <button id="isequal" onclick="solve()">=</button>
+    <button onclick="buttonPressed('+')">+</button>
   </div>
   
   <h1>BOOTYFUL isn't ?</h1>
