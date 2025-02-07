@@ -16,9 +16,9 @@ body{
 .main-background-div{
   transform: translateY(-20%);/*for slighty up */
   width: 80vw;
-  min-width: 720px;
-  min-height: 820px; 
-  aspect-ratio: 8/9;
+  width: 720px;
+  height: 820px;
+  aspect-ratio: ;
   background-color: rgba(255,255,255,0.3);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 6px rgba(0, 0, 0,0.7);
