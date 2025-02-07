@@ -16,6 +16,7 @@ body{
 .main-background-div{
   transform: translateY(-20%);/*for slighty up */
   width: 80vw;
+  max-width: 400px;
   height: 90vw;
   background-color: rgba(255,255,255,0.3);
   backdrop-filter: blur(10px);
