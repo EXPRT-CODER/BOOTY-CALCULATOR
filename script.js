@@ -1,57 +1,35 @@
 let display = '';
-function show() {
+function buttonPressed(text){
+    display += text;
     document.getElementById('display').innerText = display;
 }
-var buttons = document.querySelectorAll('button');
-buttons.forEach(function(button) {
-    button.addEventListener('click', function() {
-        if(button.innerText == 'AC'){
-            ACfun();
-        }
-        else if (button.innerText != '=') {
-            display += button.innerText;  // Append the button text to the display
-            show();
-        } 
-        else {
-            solve(display);  // Use `display` instead of getting it from the DOM again
-        }
-    });
-});
-function ACfun(){
+function buttonAC(){
     document.getElementById('display').innerText = '0';
     display = '';
 }
 function doCorrection(equation) {
-    // Replacing × to * 
-    let correctEquation = equation.replace('×', '*');
-    let strLenth = correctEquation.length;
-    // now solution for ()
-    for (let i = 0; i < strLenth; i++) {
-        if (correctEquation[i] === '(' && i != 0) {
-            // Adding '*'
-            if (correctEquation[i - 1] !== '*') {
-                let midIndex = i;  // This finding the position of '('
-                correctEquation = correctEquation.slice(0, midIndex) + '*'
-                + correctEquation.slice(midIndex);
-            }
-        }
-        if(correctEquation[i]== '%' ){
-            if(correctEquation[i+1] == ')'|| i == strLenth-1){
-                correctEquation = correctEquation.replace('%', '/100');
-            }
-        }
-    }
-    return correctEquation;  // Returned
-}
+    let correctedEquation = equation.replace('×', '*');  // Replacing multiplication sign
 
-function solve(equation) {
-    let correctedEquation = doCorrection(equation);  
-    try {
-        // Useing eval()
-        const ans = eval(correctedEquation);
-        document.getElementById('display').innerText = ans;  // Showing result
-    } catch (error) {
-        document.getElementById('display').innerText = 'Error';  // Handl errorsss
-        display = '';
+    for (let i = 0; i < correctedEquation.length; i++) {
+        if (correctedEquation[i] === '(' && i != 0 && correctedEquation[i-1] !== '*') {
+            correctedEquation = correctedEquation.slice(0, i) + '*' + correctedEquation.slice(i);
+        }
+        else if (correctedEquation[i] === '%' && (correctedEquation[i+1] === ')' 
+        || i === correctedEquation.length - 1)) {
+            correctedEquation = correctedEquation.replace('%', '/100');
+        }
     }
+    return correctedEquation;  
+}
+function solve() {
+    let correctedEquation = doCorrection(display);
+    alert(correctedEquation);
+    try {
+        display = eval(correctedEquation);
+        document.getElementById('display').innerText = display;
+    }
+     catch (error) {
+         document.getElementById('display').innerText = 'Error';
+         display = '';  
+     }
 }
